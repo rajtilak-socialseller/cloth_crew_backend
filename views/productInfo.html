@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Detail</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f2f2f2;
+      }
+
+      .product-wrapper {
+        display: flex;
+        padding: 40px;
+        background: #ffffff;
+        max-width: 1200px;
+        margin: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        min-height: 1000px;
+      }
+
+      .left-panel {
+        width: 40%;
+        padding-right: 30px;
+        border-right: 1px solid #ddd;
+      }
+
+      .main-image {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        object-fit: cover;
+      }
+
+      .thumbnails {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .thumbnails img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+
+      .right-panel {
+        width: 60%;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .product-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #222;
+        margin-bottom: 10px;
+      }
+
+      .ratings {
+        color: #4caf50;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .price-block {
+        font-size: 26px;
+        font-weight: bold;
+        color: #d32f2f;
+      }
+
+      .price-block .original-price {
+        text-decoration: line-through;
+        color: #777;
+        font-size: 16px;
+        margin-left: 10px;
+      }
+
+      .discount {
+        font-size: 16px;
+        color: #388e3c;
+        margin-left: 10px;
+      }
+
+      .section {
+        margin-top: 30px;
+      }
+
+      .section h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+      }
+
+      .section p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #555;
+      }
+
+      .variant-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .variant-list li {
+        font-size: 15px;
+        margin-bottom: 8px;
+        color: #444;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-wrapper">
+      <div class="left-panel">
+        <img class="main-image" src="{{images.[0]}}" alt="Product Image" />
+        <div class="thumbnails">
+          {{#each images}}
+          <img src="{{this}}" alt="Thumbnail" />
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div>
+          <div class="product-title">{{productName}}</div>
+          <div class="price-block">
+            ₹{{price}}
+            <span class="original-price">₹{{strike_price}}</span>
+          </div>
+
+          <div class="section">
+            <h3>Description</h3>
+            <p>{{description}}</p>
+          </div>
+
+          <div class="section">
+            <h3>Available Variants</h3>
+            <ul class="variant-list">
+              {{#each variants}}
+              <li>{{name}} – ₹{{price}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
