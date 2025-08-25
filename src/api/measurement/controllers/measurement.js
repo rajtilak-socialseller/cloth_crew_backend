@@ -1,7 +1,7 @@
-import jwt from "../../../services/jwt.js";
+const jwt = require("../../../services/jwt.js");
 
 // Create new measurement
-export const createMeasurement = async (req, res) => {
+exports.createMeasurement = async (req, res) => {
   try {
     const token = jwt.verify(req);
     if (token.error)
@@ -46,7 +46,7 @@ export const createMeasurement = async (req, res) => {
 };
 
 // Get all measurements (admin purpose)
-export const getAllMeasurements = async (req, res) => {
+exports.getAllMeasurements = async (req, res) => {
   try {
     const token = jwt.verify(req);
     if (token.error)
@@ -61,7 +61,7 @@ export const getAllMeasurements = async (req, res) => {
 };
 
 // Get measurements by userId
-export const getMeasurementByUser = async (req, res) => {
+exports.getMeasurementByUser = async (req, res) => {
   try {
     const token = jwt.verify(req);
     if (token.error)
@@ -84,7 +84,7 @@ export const getMeasurementByUser = async (req, res) => {
 };
 
 // Update measurement by userId
-export const updateMeasurement = async (req, res) => {
+exports.updateMeasurement = async (req, res) => {
   try {
     const token = jwt.verify(req);
     console.log(token);

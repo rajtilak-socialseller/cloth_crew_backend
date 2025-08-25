@@ -1,8 +1,8 @@
-import jwt from "../../../services/jwt.js";
-import store from "../models/store.js";
-import Store from "../models/store.js";
+const jwt = require("../../../services/jwt.js");
+// import store from "../models/store.js";
+// import Store from "../models/store.js";
 
-export const createStore = async (req, res) => {
+exports.createStore = async (req, res) => {
   try {
     const sequelize = req.db;
     const Store = sequelize.models.Store;
@@ -49,7 +49,7 @@ export const createStore = async (req, res) => {
   }
 };
 
-export const getAllStores = async (req, res) => {
+exports.getAllStores = async (req, res) => {
   try {
     const sequelize = req.db;
     const { Op } = sequelize.Sequelize;
@@ -103,7 +103,7 @@ export const getAllStores = async (req, res) => {
   }
 };
 
-export const getStoreById = async (req, res) => {
+exports.getStoreById = async (req, res) => {
   try {
     const sequelize = req.db;
     const Store = sequelize.models.Store;
@@ -121,7 +121,7 @@ export const getStoreById = async (req, res) => {
   }
 };
 
-export const updateStore = async (req, res) => {
+exports.updateStore = async (req, res) => {
   try {
     const sequelize = req.db;
     const Store = sequelize.models.Store;
@@ -141,7 +141,7 @@ export const updateStore = async (req, res) => {
   }
 };
 
-export const deleteStore = async (req, res) => {
+exports.deleteStore = async (req, res) => {
   try {
     const sequelize = req.db;
     const Store = sequelize.models.Store;
