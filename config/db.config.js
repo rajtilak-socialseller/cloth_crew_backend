@@ -6,7 +6,7 @@ module.exports = {
   port: 5432,
   username: "postgres",
   password: "root",
-  database: "youngindianutrition",
+  database: "cc_db",
   // password: "root",
   // database: "testing",
   pool: {

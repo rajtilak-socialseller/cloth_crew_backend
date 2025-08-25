@@ -15,7 +15,7 @@ module.exports = async () => {
     const sequelize = new Sequelize(dbConfig);
     db.sequelize = await relation(sequelize);
     dbCache.set("common_commerce", db.sequelize);
-    await db.sequelize.sync({ alter: true });
+    // await db.sequelize.sync({ alter: true });
     apiGenerator(db.sequelize); // only for development
     return db.sequelize;
   }

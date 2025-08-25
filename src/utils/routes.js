@@ -72,6 +72,8 @@ require("../api/coupon/routes/coupon")(app);
 
 // product booking system implementation
 require("../api/product_booking/routes/productBooking")(app);
+require("../api/measurement/routes/measurement")(app);
+require("../api/store/routes/store")(app);
 // const fs = require("fs");
 // const path = require("path");
 

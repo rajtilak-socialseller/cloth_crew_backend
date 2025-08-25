@@ -137,7 +137,7 @@ module.exports = {
         dbCache.set(subdomain, db.instance_sequelize);
 
         ins_t = await db.instance_sequelize.transaction(); // to use transaction
-        await db.instance_sequelize.sync({ alter: true });
+        // await db.instance_sequelize.sync({ alter: true });
         await tenantMetric({
           subdomain,
           field_name: tenant_metric_fields.total_users,

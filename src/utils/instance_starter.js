@@ -12,7 +12,7 @@ module.exports = async () => {
     db.sequelize = await relation(sequelize);
     console.log("Setting Up Configuration📤");
     dbCache.set("common_commerce", db.sequelize);
-    await db.sequelize.sync({ alter: true });
+    // await db.sequelize.sync({ alter: true });
     await apiGenerator(db.sequelize);
     console.log("Server Started!💻");
     console.log(

@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: "Guest"
+      defaultValue: "Guest",
     },
     email: {
       type: DataTypes.STRING,
@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
     phone: {
       type: DataTypes.STRING,
       unique: true,
-      allowNull: true
+      allowNull: true,
     },
     country_code: {
       type: DataTypes.STRING,
@@ -45,7 +45,7 @@ module.exports = (sequelize) => {
     },
     isPremium: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
+      defaultValue: false,
     },
     otp: {
       type: DataTypes.STRING,
@@ -53,12 +53,16 @@ module.exports = (sequelize) => {
     },
     otp_expiration: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
     },
-     sign_in_bonus: {
+    sign_in_bonus: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
-    }
+    },
+    login_first: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   });
 
   return Store_user;

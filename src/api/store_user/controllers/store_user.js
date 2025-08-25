@@ -1203,7 +1203,7 @@ exports.verifyOTP = async (req, res) => {
         id: findUser.dataValues.id,
         sequelize,
       });
-      await findUser.update({ otp: null });
+      await findUser.update({ otp: null, login_first: true });
       const token = jwt.issue({ id: findUser.id });
       await createActivityLog({
         sequelize,

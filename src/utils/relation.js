@@ -58,6 +58,10 @@ const coupon = require("../api/coupon/models/coupon");
 const bookings = require("../api/product_booking/models/productBooking");
 const pickupAddress = require("../api/address/models/pickupAddress");
 
+// measurement table
+const Measurement = require("../api/measurement/models/measurement");
+const Store = require("../api/store/models/store");
+
 module.exports = async (sequelize) => {
   const db = {};
   db.sequelize = sequelize;
@@ -118,6 +122,8 @@ module.exports = async (sequelize) => {
   db.Free_plan = free_plan(sequelize);
   db.Coupon = coupon(sequelize);
   db.Booking = bookings(sequelize);
+  db.Measurement = Measurement(sequelize);
+  db.Store = Store(sequelize);
   // #################### Product , Variant , Tag , Bulk Pricing and Collection and Collection_static Association #################
   db.Product.hasMany(db.Variant, { foreignKey: "ProductId", as: "variants" });
   db.Variant.belongsTo(db.Product, { foreignKey: "ProductId", as: "product" });
@@ -537,6 +543,15 @@ module.exports = async (sequelize) => {
     foreignKey: "variantId",
     as: "variant",
   });
+
+  // measurement start
+  db.Measurement.belongsTo(db.Store_user, {
+    foreignKey: "UserId",
+    as: "user",
+  });
+
+  // db.Store_user.hasMany(db.Store, { foreignKey: "ownerId" });
+  // db.Store.belongsTo(db.Store_user, { foreignKey: "ownerId" });
 
   // db.Coupon.belongsToMany(db.Product, {
   //   foreignKey: "CouponId",
